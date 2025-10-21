@@ -72,12 +72,10 @@ export default defineConfig([
 ])
 ```
 
-## Rest Service
+## To-Do List
 
 Run this using `npm run dev` from the root directory of the project.
 
 The application can be accessed at http://localhost:5173.
 
-The project is a TypeScript equivalent to my Rest Service project originally developed in JavaScript.
-
-Please see https://jsonplaceholder.typicode.com/ and https://jsonplaceholder.typicode.com//guide/ for more information on the API.
+The project is a TypeScript equivalent to my to-do list project originally developed in JavaScript.
