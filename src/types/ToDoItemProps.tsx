@@ -1,5 +1,5 @@
 /*
- * (#)ToDoList.tsx  0.1.0   10/22/2025
+ * (#)ToDoItemProps.tsx 0.1.0   10/22/2025
  *
  * @author  Jonathan Parker
  * @version 0.1.0
@@ -28,21 +28,9 @@
  * SOFTWARE.
  */
 
-import type { JSX } from "react";
-import type { ToDoListProps } from "./types/ToDoListProps.tsx";
-
-import ToDoItem from "./ToDoItem.tsx";
-
-export default function ToDoList({ todos }: ToDoListProps): JSX.Element {
-    return (
-        <ul className="list">
-            {todos.length === 0 && "No To-Do Items"}
-
-            {todos.map(todo => {
-                return (
-                    <ToDoItem id={ todo.id } toDoItem={ todo.toDoItem } completed={ todo.completed} />
-                );
-            })}
-        </ul>
-    );
+/** The interface for the component's props for clarity and type safety. */
+export interface ToDoItemProps {
+    readonly id: string;
+    readonly toDoItem: string;
+    readonly completed: boolean;
 }

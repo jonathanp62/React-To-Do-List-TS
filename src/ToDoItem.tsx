@@ -1,5 +1,5 @@
 /*
- * (#)ToDoList.tsx  0.1.0   10/22/2025
+ * (#)ToDoItem.tsx  0.1.0   10/22/2025
  *
  * @author  Jonathan Parker
  * @version 0.1.0
@@ -29,20 +29,10 @@
  */
 
 import type { JSX } from "react";
-import type { ToDoListProps } from "./types/ToDoListProps.tsx";
+import type { ToDoItemProps } from "./types/ToDoItemProps.tsx";
 
-import ToDoItem from "./ToDoItem.tsx";
-
-export default function ToDoList({ todos }: ToDoListProps): JSX.Element {
+export default function ToDoItem({ id, toDoItem, completed }: ToDoItemProps): JSX.Element {
     return (
-        <ul className="list">
-            {todos.length === 0 && "No To-Do Items"}
-
-            {todos.map(todo => {
-                return (
-                    <ToDoItem id={ todo.id } toDoItem={ todo.toDoItem } completed={ todo.completed} />
-                );
-            })}
-        </ul>
+        <li>{ toDoItem }</li>
     );
 }
