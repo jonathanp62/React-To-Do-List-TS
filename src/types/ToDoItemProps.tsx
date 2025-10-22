@@ -33,4 +33,6 @@ export interface ToDoItemProps {
     readonly id: string;
     readonly toDoItem: string;
     readonly completed: boolean;
+    readonly deleteTodoFunction: (id: string) => void;
+    readonly toggleTodoCompletedFunction: (id: string, completed: boolean) => void;
 }

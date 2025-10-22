@@ -33,4 +33,6 @@ import type { ToDoItemType } from "./ToDoItemType.tsx";
 /** The interface for the component's props for clarity and type safety. */
 export interface ToDoListProps {
     readonly todos: ToDoItemType[];
+    readonly deleteTodoFunction: (id: string) => void;
+    readonly toggleTodoCompletedFunction: (id: string, completed: boolean) => void;
 }

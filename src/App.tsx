@@ -76,12 +76,36 @@ function App(): JSX.Element {
         });
     }
 
+    /**
+     * Delete the to-do item.
+     *
+     * @param   {string}    id
+     */
+    function deleteTodo(id: string): void {
+
+    }
+
+    /**
+     * Toggle the completed setting.
+     *
+     * @param   {string}    id
+     * @param   {boolean}   completed
+     */
+    function toggleTodoCompleted(id: string, completed: boolean): void {
+
+    }
+
     return (
         <>
             <NewToDoForm addToDoItemFunction={ addToDoItem } />
             <Header title={ packageJson.appConfig.header } />
-            <ToDoList todos={ todos } />
-            <Footer title={ packageJson.appConfig.footer } version={ packageJson.version } />
+            <ToDoList todos={ todos }
+                      deleteTodoFunction={ deleteTodo }
+                      toggleTodoCompletedFunction={ toggleTodoCompleted }
+            />
+            <Footer title={ packageJson.appConfig.footer }
+                    version={ packageJson.version }
+            />
         </>
     );
 }

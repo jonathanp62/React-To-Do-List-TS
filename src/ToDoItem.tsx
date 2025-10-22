@@ -31,7 +31,11 @@
 import type { JSX } from "react";
 import type { ToDoItemProps } from "./types/ToDoItemProps.tsx";
 
-export default function ToDoItem({ id, toDoItem, completed }: ToDoItemProps): JSX.Element {
+export default function ToDoItem({ id,
+                                   toDoItem,
+                                   completed,
+                                   deleteTodoFunction,
+                                   toggleTodoCompletedFunction }: ToDoItemProps): JSX.Element {
     return (
         <li>{ toDoItem }</li>
     );

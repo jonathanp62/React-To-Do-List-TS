@@ -33,14 +33,19 @@ import type { ToDoListProps } from "./types/ToDoListProps.tsx";
 
 import ToDoItem from "./ToDoItem.tsx";
 
-export default function ToDoList({ todos }: ToDoListProps): JSX.Element {
+export default function ToDoList({ todos, deleteTodoFunction, toggleTodoCompletedFunction }: ToDoListProps): JSX.Element {
     return (
         <ul className="list">
             {todos.length === 0 && "No To-Do Items"}
 
             {todos.map(todo => {
                 return (
-                    <ToDoItem id={ todo.id } toDoItem={ todo.toDoItem } completed={ todo.completed} />
+                    <ToDoItem id={ todo.id }
+                              toDoItem={ todo.toDoItem }
+                              completed={ todo.completed}
+                              deleteTodoFunction={ deleteTodoFunction }
+                              toggleTodoCompletedFunction={ toggleTodoCompletedFunction }
+                    />
                 );
             })}
         </ul>
