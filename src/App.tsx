@@ -36,6 +36,7 @@ import { useEffect, useState } from 'react';
 import NewToDoForm from "./NewToDoForm.tsx";
 import Header from "./Header.tsx";
 import Footer from "./Footer.tsx";
+import ToDoList from "./ToDoList.tsx";
 import packageJson from "../package.json";
 
 /**
@@ -79,6 +80,7 @@ function App(): JSX.Element {
         <>
             <NewToDoForm addToDoItemFunction={ addToDoItem } />
             <Header title={ packageJson.appConfig.header } />
+            <ToDoList todos={ todos } />
             <Footer title={ packageJson.appConfig.footer } version={ packageJson.version } />
         </>
     );
