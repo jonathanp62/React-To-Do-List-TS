@@ -29,8 +29,14 @@
  */
 
 import type { JSX } from "react";
+import type { ToDoItemType } from "./types/ToDoItemType.tsx";
 
 import './styles/styles.css'
+import { useEffect, useState } from 'react';
+import NewToDoForm from "./NewToDoForm.tsx";
+import Header from "./Header.tsx";
+import Footer from "./Footer.tsx";
+import packageJson from "../package.json";
 
 /**
  * The App component.
@@ -38,8 +44,43 @@ import './styles/styles.css'
  * @returns {JSX.Element}
  */
 function App(): JSX.Element {
+    const [todos, setTodos] = useState(() => {
+        const localValue: string | null = localStorage.getItem("TODOS");
+
+        if (localValue == null)
+            return [];
+
+        return JSON.parse(localValue);
+    });
+
+    // Executed after the component is rendered
+
+    useEffect(() => {
+        localStorage.setItem("TODOS", JSON.stringify(todos));
+    });
+
+    /**
+     * Add a new to-do item.
+     *
+     * @param   {string}    newToDo
+     */
+    function addToDoItem(newToDo: string): void {
+        setTodos((currentTodos: ToDoItemType[]) => {
+            // Return the current list with a new todo added
+
+            return [
+                ...currentTodos,    // Destructure into distinct variables
+                { id: crypto.randomUUID(), toDoItem: newToDo, completed: false },
+            ];
+        });
+    }
+
     return (
-        <p>Welcome!</p>
+        <>
+            <NewToDoForm addToDoItemFunction={ addToDoItem } />
+            <Header title={ packageJson.appConfig.header } />
+            <Footer title={ packageJson.appConfig.footer } version={ packageJson.version } />
+        </>
     );
 }
 

@@ -14,10 +14,8 @@
     "react-dom": "^19.1.1"
   },
   "appConfig": {
-    "postsGetUrl": "https://jsonplaceholder.typicode.com/posts",
-    "postsPostUrl": "https://jsonplaceholder.typicode.com/posts",
-    "postsDeleteUrl": "https://jsonplaceholder.typicode.com/posts",
-    "title": "REST Services"
+    "header": "To-Do Items",
+    "footer": "To-Do List"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
