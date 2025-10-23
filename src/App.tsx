@@ -66,7 +66,7 @@ function App(): JSX.Element {
      * @param   {string}    newToDo
      */
     function addToDoItem(newToDo: string): void {
-        setTodos((currentTodos: ToDoItemType[]) => {
+        setTodos((currentTodos: ToDoItemType[]): ToDoItemType[] => {
             // Return the current list with a new todo added
 
             return [
@@ -82,7 +82,11 @@ function App(): JSX.Element {
      * @param   {string}    id
      */
     function deleteTodo(id: string): void {
+        setTodos((currentTodos: ToDoItemType[]): ToDoItemType[] => {
+            // The filter keeps items that do not match the id
 
+            return currentTodos.filter(todo => todo.id !== id);
+        });
     }
 
     /**
@@ -92,7 +96,15 @@ function App(): JSX.Element {
      * @param   {boolean}   completed
      */
     function toggleTodoCompleted(id: string, completed: boolean): void {
+        setTodos((currentTodos: ToDoItemType[]): ToDoItemType[] => {
+            return currentTodos.map(todo => {
+                if (todo.id === id) {
+                    return { ...todo, completed };
+                }
 
+                return todo;
+            })
+        });
     }
 
     return (

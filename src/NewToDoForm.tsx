@@ -37,11 +37,17 @@ import { useState } from "react";
 /**
  * The new to-do form component.
  *
- * @returns {JSX.Element}
+ * @param   {NewToDoFormProps}  props
+ * @returns                     {JSX.Element}
  */
 export default function NewToDoForm({ addToDoItemFunction }: NewToDoFormProps): JSX.Element {
     const [newToDo, setNewToDo] = useState<string>("");
 
+    /**
+     * Handle the form submission.
+     *
+     * @param   {React.FormEvent<HTMLFormElement>}  e
+     */
     function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
         // Parameter 'e' represents a SubmitEvent
 

@@ -31,12 +31,27 @@
 import type { JSX } from "react";
 import type { ToDoItemProps } from "./types/ToDoItemProps.tsx";
 
+/**
+ * The to-do item component.
+ *
+ * @param   {ToDoItemProps} props
+ * @returns                 {JSX.Element}
+ */
 export default function ToDoItem({ id,
                                    toDoItem,
                                    completed,
                                    deleteTodoFunction,
                                    toggleTodoCompletedFunction }: ToDoItemProps): JSX.Element {
     return (
-        <li>{ toDoItem }</li>
+        <li>
+            <label>
+                <input type="checkbox"
+                       checked={ completed }
+                       onChange={ e => toggleTodoCompletedFunction(id, e.target.checked) }
+                       />
+                <span className="todo-text-fixed-width">{ toDoItem }</span>
+            </label>
+            <button onClick={ () => deleteTodoFunction(id) }>Delete</button>
+        </li>
     );
 }

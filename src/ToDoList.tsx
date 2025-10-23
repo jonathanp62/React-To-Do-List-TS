@@ -33,6 +33,12 @@ import type { ToDoListProps } from "./types/ToDoListProps.tsx";
 
 import ToDoItem from "./ToDoItem.tsx";
 
+/**
+ * The to-do list component.
+ *
+ * @param   {ToDoListProps} props
+ * @returns                 {JSX.Element}
+ */
 export default function ToDoList({ todos, deleteTodoFunction, toggleTodoCompletedFunction }: ToDoListProps): JSX.Element {
     return (
         <ul className="list">
